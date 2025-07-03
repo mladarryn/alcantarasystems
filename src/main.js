@@ -206,7 +206,7 @@ function initScrollProgress() {
         left: 0;
         width: 0%;
         height: 3px;
-        background: linear-gradient(90deg, #f59e0b, #2563eb);
+        background: linear-gradient(90deg, #0F2671, #2563eb, #f59e0b);
         z-index: 9999;
         transition: width 0.3s ease;
     `;
@@ -277,6 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCardHoverEffects();
     initFloatingAnimation();
     initScrollProgress();
+    initImageSlider();
     // Show cookie banner
     showCookieBanner();
     // Add event listeners
@@ -299,27 +300,55 @@ window.addEventListener('resize', () => {
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    const slider = document.querySelector('.values-image .slides');
-    const slides = document.querySelectorAll('.values-image .slides img');
-    const prevBtn = document.querySelector('.values-image .prev');
-    const nextBtn = document.querySelector('.values-image .next');
-    let index = 0;
+// Image Slider functionality
+function initImageSlider() {
+    const slider = document.querySelector('.image-slider .slides');
+    const slides = document.querySelectorAll('.image-slider .slides img');
+    const prevBtn = document.querySelector('.image-slider .prev');
+    const nextBtn = document.querySelector('.image-slider .next');
+    const dots = document.querySelectorAll('.image-slider .dot');
+    let currentIndex = 0;
+
+    if (!slider || !slides.length) return;
 
     function updateSlider() {
-        slider.style.transform = `translateX(-${index * 100}%)`;
+        slider.style.transform = `translateX(-${currentIndex * 10}%)`;
+
+        // Update dots
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
     }
 
-    nextBtn.addEventListener('click', () => {
-        index = (index + 1) % slides.length;
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
         updateSlider();
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateSlider();
+    }
+
+    function goToSlide(index) {
+        currentIndex = index;
+        updateSlider();
+    }
+
+    // Event listeners
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => goToSlide(index));
     });
 
-    prevBtn.addEventListener('click', () => {
-        index = (index - 1 + slides.length) % slides.length;
-        updateSlider();
-    });
-});
+    // Auto-play functionality (optional)
+    setInterval(nextSlide, 5000); // Change slide every 5 seconds
+
+    // Initialize slider
+    updateSlider();
+}
 
 
 // Export for potential external use
