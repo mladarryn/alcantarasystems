@@ -1,0 +1,2679 @@
+:root {
+    --primary-blue: #173289;
+    --primary-blue-dark: #1d4ed8;
+    --primary-blue-light: #3b82f6;
+    --secondary-blue: #1e40af;
+    --accent-orange: #f59e0b;
+    --dark-navy: #1e293b;
+    --light-gray: #f8fafc;
+    --medium-gray: #64748b;
+    --text-dark: #334155;
+    --text-light: #64748b;
+    --white: #ffffff;
+    --gradient-bg: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+    --gradient-hero: linear-gradient(135deg, rgba(30, 64, 175, 0.9) 0%, rgba(37, 99, 235, 0.9) 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Remove white lines from all images */
+img {
+    border: none;
+    outline: none;
+    display: block;
+    max-width: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.container-fluid {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Header Styles */
+.header-top {
+    background: var(--dark-navy);
+    color: var(--white);
+    padding: 0.4rem 0;
+    font-size: 0.875rem;
+}
+
+.header-top-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.header-info {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.header-info span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.header-info i {
+    color: var(--accent-orange);
+}
+
+.auth-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.auth-links a {
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.auth-links a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Navigation */
+.navbar {
+    background: rgba(255, 255, 255, 0.40);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    gap: 11rem;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    align-items: center;
+    margin-left: 2rem;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    flex-shrink: 0;
+}
+
+.logo img {
+    max-height: 45px;
+    width: auto;
+    display: block;
+}
+
+
+.logo:hover {
+    color: var(--primary-blue-dark);
+}
+
+.nav-item {
+    position: relative;
+}
+
+.dropdown-arrow {
+    font-size: 0.75rem;
+    margin-left: 0.25rem;
+    transition: transform 0.3s ease;
+}
+
+.nav-item.dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 5px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    min-width: 280px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1001;
+    list-style: none;
+    padding: 0.5rem 0;
+    margin: 0;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-link {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    margin: 0 0.5rem;
+}
+
+.dropdown-link:hover {
+    background: var(--primary-blue);
+    color: var(--white);
+    transform: translateX(5px);
+}
+
+.nav-link {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-link:hover {
+    color: var(--primary-blue);
+}
+
+.navbar.scrolled .nav-link {
+    color: var(--text-dark);
+    text-shadow: none;
+}
+
+.navbar.scrolled .nav-link:hover {
+    color: var(--primary-blue);
+}
+
+.language-selector {
+    display: flex;
+    gap: 0.9rem;
+}
+
+.lang-btn {
+    width: 29px;
+    height: 21px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    background-size: cover;
+    background-position: center;
+}
+
+.lang-btn.es { background-image: url('https://flagcdn.com/w40/es.png'); }
+.lang-btn.fr { background-image: url('https://flagcdn.com/w40/fr.png'); }
+.lang-btn.en { background-image: url('https://flagcdn.com/w40/gb.png'); }
+
+.lang-btn:hover {
+    transform: scale(1.1);
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    background: url('https://ext.same-assets.com/1527050792/186132195.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-subtitle {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+}
+
+
+.hero-main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5.5vw, 5rem);
+    font-weight: 700;
+    margin-bottom: 1.7rem;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5.5vw, 5rem);
+    font-weight: 700;
+    margin-bottom: 1.7rem;
+    line-height: 1.2;
+}
+
+.hero-description {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.95);
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.hero-stat {
+    text-align: center;
+}
+
+.hero-stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-orange);
+    display: block;
+}
+
+.hero-stat-text {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent-orange);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+}
+
+.cta-button:hover {
+    background: #d97706;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+}
+
+/* Sections */
+.section {
+    padding: 5rem 0;
+}
+
+.section.bg-light {
+    background: var(--light-gray);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-subtitle {
+    color: var(--primary-blue);
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.875rem, 4vw, 2.5rem);
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-title-special {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.875rem, 4vw, 2.5rem);
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-title-special::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--accent-orange);
+    border-radius: 2px;
+}
+
+.section-description {
+    font-size: 1.125rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+/* Values Section */
+.values-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    align-items: center;
+}
+
+.values-content-two {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+
+.values-text {
+    max-width: 500px;
+    text-align: justify;
+    justify-self: center;
+}
+
+.values-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.875rem;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+}
+
+.values-text p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.values-text-two {
+    max-width: none;
+    text-align: justify;
+    justify-self: center;
+}
+
+.values-text-two h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.875rem;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+}
+
+.values-text-two p {
+    font-size: 1.1rem;
+    /* color: var(--text-light); */
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.values-image {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); */
+}
+
+.values-image img {
+    width: 100%;
+    height: auto;         /* keep natural height */
+    object-fit: contain;
+    border: none;
+    outline: none;
+    display: block;
+}
+
+
+/* Image Slider Styles */
+.image-slider {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    background: var(--white);
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    width: 1000%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+    width: 10%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: none;
+    outline: none;
+    display: block;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(30px);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: var(--primary-blue);
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.slider-btn:hover {
+    background: var(--primary-blue);
+    color: var(--white);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slider-btn.prev {
+    left: 15px;
+}
+
+.slider-btn.next {
+    right: 15px;
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+.dot.active,
+.dot:hover {
+    background: var(--accent-orange);
+    transform: scale(1.2);
+}
+
+
+/* Divisions Section */
+.divisions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.division-card {
+    background: var(--white);
+    border-radius: 5px;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.division-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-bg);
+}
+
+.division-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.division-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: var(--white);
+    font-size: 2rem;
+}
+
+.division-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.division-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Projects Section */
+.projects-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+.projects-grid {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); */
+    grid-template-columns: repeat(auto-fill, 350px);
+    justify-content: center;
+    gap: 2rem;
+}
+
+.project-card {
+    background: var(--white);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    position: relative;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.project-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.project-content {
+    flex: 1;
+    overflow-y: auto;
+    position: relative;
+    padding: 1.5rem;
+}
+
+/* fade at top */
+.project-card::before {
+    content: "";
+    position: absolute;
+    top: 200px;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: linear-gradient(to bottom, var(--white), transparent);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.project-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: linear-gradient(to top, var(--white), transparent);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.project-categories {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.project-category {
+    background: var(--light-gray);
+    color: var(--primary-blue);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.project-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.project-description {
+    font-size: 0.95rem;
+    color: var(--text-light, #666);
+    line-height: 1.6;
+    margin-top: 0.5rem;
+    /* text-align: justify; */
+}
+
+.project-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/*Dynamic Division Section*/
+.interactive-divisions {
+    display: flex;
+    height: 500px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    margin-top: 3rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Individual Division Panel */
+.division-panel {
+    position: relative;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    transition: flex-grow 0.7s ease, flex-shrink 0.7s ease, flex-basis 0.7s ease;
+    overflow: hidden;
+    min-width: 0;
+}
+
+.division-panel:hover {
+    flex-grow: 10;
+}
+
+.division-link {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1000;
+    text-decoration: none;
+    color: inherit;
+}
+
+.division-overlay,
+.division-content,
+.division-bg {
+    pointer-events: none;
+}
+
+
+/* Collapse others fully */
+.interactive-divisions:hover .division-panel:not(:hover) {
+    flex: 0 0 0 !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Background Image */
+.division-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 1s ease;
+    transform: scale(1.1);
+}
+
+.division-panel:hover .division-bg {
+    transform: scale(1);
+}
+
+/* Overlay only shows on hover */
+.division-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        rgba(23, 50, 137, 0.8) 0%,
+        rgba(30, 64, 175, 0.6) 50%,
+        rgba(37, 99, 235, 0.4) 100%
+    );
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.division-panel:hover .division-overlay {
+    opacity: 0.7;
+}
+
+/* Content Container - always centered */
+.division-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 2rem;
+    z-index: 10;
+}
+
+/* Division Icon - always visible */
+.division-content .division-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.6s ease, transform 0.6s ease; /* <-- ADDED transform */
+    margin-bottom: 1.5rem;
+    transition: all 0.6s ease;
+    opacity: 1;
+    flex-shrink: 0;
+    aspect-ratio: 1 / 1;
+}
+
+.division-content .division-icon i {
+    font-size: 2rem;
+    color: var(--white);
+}
+
+/* Division Title - always visible */
+.division-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.4s ease;
+}
+
+/* Division Description - appears immediately after expand */
+.division-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    max-width: 90%;
+    text-align: center;
+}
+
+.division-panel:hover .division-description {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .interactive-divisions {
+        flex-direction: column;
+        height: auto;
+        min-height: 600px;
+    }
+
+    .division-panel {
+        min-height: 120px;
+        flex: none;
+    }
+
+    .division-panel:hover {
+        flex: none;
+        min-height: 300px;
+    }
+
+    .interactive-divisions:hover .division-panel:not(:hover) {
+        flex: none;
+        min-height: 80px;
+    }
+
+    .division-content {
+        padding: 1rem;
+    }
+
+    .division-title {
+        font-size: 1.25rem;
+    }
+
+    .division-description {
+        font-size: 0.9rem;
+    }
+}
+
+/* Contact Section */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+    align-items: center;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.contact-details h4 {
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.contact-details p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.contact-details a {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+    background: var(--dark-navy);
+    color: var(--white);
+    text-align: center;
+    padding: 3rem 0 2rem;
+}
+
+.footer-content {
+    /* margin-bottom: 3rem; */
+}
+
+.footer-certifications {
+    /* display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap; */
+}
+
+.certification {
+    /* display: flex;
+    align-items: center; */
+}
+
+.certification img {
+    /* width: 50px;
+    height: 50px; */
+}
+
+/* .social-links {
+    margin: 0.5rem 0;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--primary-blue);
+    color: var(--white);
+    border-radius: 50%;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: var(--accent-orange);
+    transform: translateY(-2px);
+} */
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+}
+
+/* Cookie Banner */
+.cookie-banner {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    max-width: 400px;
+    z-index: 1001;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.cookie-banner.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.cookie-banner p {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.cookie-banner a {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.cookie-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.cookie-btn.accept {
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+.cookie-btn.reject {
+    background: var(--light-gray);
+    color: var(--text-dark);
+}
+
+.cookie-btn:hover {
+    transform: translateY(-1px);
+}
+
+
+/* === Two-Column Layout for Sliders === */
+.slider-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.slider-column {
+    flex: 1;
+    min-width: 300px;
+    max-width: 48%;
+}
+
+/* Optional: Remove width limits inside column layout */
+.slider-column .team-grid {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-top-content {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .header-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        gap: 0;
+    }
+
+    .nav-content {
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .nav-menu.show {
+        display: flex;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .hero-stats {
+        gap: 1.5rem;
+    }
+
+    .values-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .values-content-two {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .divisions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cookie-banner {
+        bottom: 1rem;
+        right: 1rem;
+        left: 1rem;
+        max-width: none;
+    }
+
+    .footer-certifications {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dropdown-menu {
+        position: static;
+        background: var(--light-gray);
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        min-width: auto;
+        width: 100%;
+        margin-top: 0.5rem;
+        display: none;
+    }
+
+    .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    /* .dropdown-arrow {
+        display: none;
+    } */
+
+    .image-slider {
+        margin-top: 2rem;
+    }
+
+    .slider-container {
+        height: auto; /* let height shrink naturally */
+        aspect-ratio: 4 / 3; /* maintain ratio */
+    }
+
+    .slider-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    .slider-columns {
+        flex-direction: column;
+    }
+
+    .slider-column {
+        max-width: 100%;
+    }
+}
+
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Scroll animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.animate-on-scroll.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+/* Empresa Page Styles */
+.empresa-hero {
+    background: url('https://alcantarasystems.com/wp-content/uploads/2021/02/04.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.empresa-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+
+.hero-social {
+    margin-top: 2rem;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.social-link:hover {
+    background: var(--accent-orange);
+    transform: translateY(-3px);
+    border-color: var(--accent-orange);
+}
+
+/* Organization Content */
+.organization-content {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.organization-content-two {
+    display: grid;
+    grid-template-columns: auto;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.organization-text p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+.organization-structure {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.structure-item {
+    padding: 1.5rem;
+    background: var(--light-gray);
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-blue);
+    flex: 1;
+    max-width: 50%;
+}
+
+.structure-item h4 {
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.structure-item i {
+    color: var(--accent-orange);
+}
+
+.organization-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Mission Content - UPDATED */
+.mission-content {
+    margin-top: 3rem;
+}
+
+.mission-description {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+.mission-pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    justify-content: center;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pillar {
+    text-align: center;
+    padding: 0;
+    background: var(--white);
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.pillar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-bg);
+}
+
+.pillar:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.pillar-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.pillar-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.pillar:hover .pillar-image img {
+    transform: scale(1.05);
+}
+
+.pillar-content {
+    padding: 1.5rem;
+}
+
+.pillar-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.pillar-icon i {
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.pillar h4 {
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+}
+
+.pillar p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Global Content */
+.global-content {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.countries-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.countries-grid-two {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.countries-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.countries-column li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e2e8f0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.countries-column li:before {
+    content: '•';
+    color: var(--accent-orange);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.global-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Timeline Styles */
+.timeline {
+    position: relative;
+    margin-top: 3rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -2rem;
+    bottom: -2rem;
+    width: 3px;
+    background: var(--primary-blue);
+    transform: translateX(-50%);
+    /* z-index: 1; */
+}
+
+.timeline-item {
+    margin-bottom: 6rem;
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-orange);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    border: 1.5px solid var(--white);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 #f59e0bb3;
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(245, 158, 11, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+    }
+}
+
+.timeline-text {
+    position: absolute;
+    top: 0;
+    width: 47%;
+}
+
+.timeline-image {
+    position: fixed;
+    top: 0;
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: transparent;
+    box-shadow: none;
+}
+
+/* Odd items: text on left (right-aligned), image on right */
+.timeline-item:nth-child(odd) .timeline-text {
+    left: 0;
+    right: auto;
+    text-align: right;
+    padding-right: 1.5rem;
+}
+
+.timeline-item:nth-child(odd) .timeline-image {
+    right: 0;
+    left: auto;
+    padding-left: 1.5rem;
+}
+
+/* Even items: text on right (left-aligned), image on left */
+.timeline-item:nth-child(even) .timeline-text {
+    right: 0;
+    left: auto;
+    text-align: left;
+    padding-left: 1.5rem;
+}
+
+.timeline-item:nth-child(even) .timeline-image {
+    left: 0;
+    right: auto;
+    padding-right: 1.5rem;
+}
+
+.timeline-text h3 {
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.timeline-date {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.timeline-text p {
+    line-height: 1.6;
+    color: var(--text-dark);
+    font-size: 1rem;
+}
+
+.timeline-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Active nav link for empresa page */
+.nav-link.active {
+    color: var(--accent-orange) !important;
+}
+
+/* Responsive Design for Empresa Page */
+@media (max-width: 768px) {
+    .organization-content,
+    .mission-content,
+    .global-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .timeline::before {
+        left: 30px;
+    }
+
+    .timeline-item::before {
+        left: 30px;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-text,
+    .timeline-item:nth-child(even) .timeline-text {
+        position: static;
+        width: 100%;
+        text-align: left;
+        padding: 0 0 0 60px;
+        margin-bottom: 1rem;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-image,
+    .timeline-item:nth-child(even) .timeline-image {
+        position: static;
+        width: 100%;
+        padding: 0 0 0 60px;
+    }
+
+    .mission-pillars {
+        grid-template-columns: 1fr;
+    }
+
+    .countries-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .timeline-image img {
+        height: auto;
+    }
+
+    .empresa-hero {
+        min-height: 50vh;
+    }
+
+    .organization-structure {
+        gap: 1rem;
+    }
+
+    .structure-item {
+        padding: 1rem;
+    }
+    .agroindustrial-image img {
+        width: 50%;
+    }
+}
+
+
+/* Instalacione Page Styles*/
+.instalaciones-hero {
+    background: url('https://alcantarasystems.com/wp-content/uploads/2017/08/11.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.instalaciones-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.installation-text p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+.installation-text li {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+.installation-content {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.installation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+    align-items: center;
+}
+
+
+.equipos-hero {
+    background: url('https://alcantarasystems.com/wp-content/uploads/2021/02/16.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.equipos-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.team-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center children horizontally */
+    gap: 3rem;
+    margin: 3rem auto;
+
+    max-width: 600px; /* adjust to control how wide */
+    width: 100%;
+    padding: 0 1rem;
+}
+
+
+/*Contact Page Style*/
+.contacto-hero {
+    background: url('https://alcantarasystems.com/wp-content/uploads/2017/08/Banco-de-pruebas.jpg');
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.contacto-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+
+.contact-info-header {
+    text-align: center;
+    margin: 2rem 0 1.5rem 0;
+}
+
+.contact-info-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 1.875rem);
+    font-weight: 600;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.contact-info-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--accent-orange);
+    border-radius: 2px;
+}
+
+
+
+/*Quality Policy DropDown Page Style*/
+.quality-policy-hero {
+    background: url('https://alcantarasystems.com/wp-content/uploads/2017/08/8-4.jpg');
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.quality-policy-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.quality-policy-text p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.quality-policy-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.875rem, 4vw, 2.5rem);
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.quality-policy-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--accent-orange);
+    border-radius: 2px;
+}
+
+.quality-image {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); */
+}
+
+.quality-image img {
+    width: 100%;    /* scales down relative to container */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* center it horizontally */
+}
+
+/*Environmental Policy DropDown Page Style*/
+.environmental-policy-hero {
+    background: url('https://alcantarasystems.com/wp-content/uploads/2021/01/Produccion-de-plantas-en-nuestro-Semillero-1180x470-1.jpg');
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.environmental-policy-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* always 2 per row */
+    gap: 1.5rem;
+    justify-items: center;
+    align-items: center;
+    background: none;
+    box-shadow: none;
+    border: none;
+}
+
+.image-grid img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.environment-image {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); */
+}
+
+.environment-image img {
+    width: 75%;    /* scales down relative to container */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* center it horizontally */
+}
+
+
+/*Social Responsibilities DropDown Page Style*/
+.social-responsibilities-hero {
+    background: url('https://alcantarasystems.com/wp-content/uploads/2021/01/01-cultivo-a-cielo-abierto.jpg');
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.social-responsibilities-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/*Legal Notice DropDown Page Style*/
+.social-responsibilities-hero {
+    background: url('https://alcantarasystems.com/wp-content/uploads/2021/02/05.jpg');
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.social-responsibilities-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/*Work with Us DropDown Page Style*/
+.work-with-us-hero {
+    background: url('https://alcantarasystems.com/wp-content/uploads/2021/01/04-cultivo-a-cielo-abierto.jpg');
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.work-with-us-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/*Agroindustrial division DropDown Page Style*/
+.agroindustrial-hero {
+    background: url('https://alcantarasystems.com/wp-content/uploads/2021/01/03-cultivo-a-cielo-abierto-1.jpg');
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.agroindustrial-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.agroindustrial-image {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); */
+}
+
+.agroindustrial-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/*Divisions Page Style*/
+.divisions-hero {
+    background: url('https://alcantarasystems.com/wp-content/uploads/2021/02/05-1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.divisions-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+
+/*Industrial Division DropDown Page Style*/
+.industrial-hero {
+    background: url('https://alcantarasystems.com/wp-content/uploads/2021/02/4-1.jpg');
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.industrial-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.image-grid-break {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    justify-items: center;
+    align-items: center;
+}
+
+.image-grid-break img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.image-grid-break .image-slider {
+    grid-column: 1 / -1; /* breaks grid to take full width */
+    width: auto; /* keeps natural width */
+    max-width: 100%; /* makes sure it doesn't overflow on small screens */
+    margin-top: 1.5rem;
+}
+
+/*Naval Division DropDown Page Style*/
+.naval-hero {
+    background: url('https://alcantarasystems.com/wp-content/uploads/2017/08/11-2-scaled.jpg');
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.naval-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/*Adrar Project Page Style*/
+.adrar-hero {
+    background: url('https://alcantarasystems.com/wp-content/uploads/2021/01/Cultivo-en-el-Desierto-2-1536x1152-1.jpg');
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.adrar-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/3; /* keep consistent ratio for all thumbnails */
+    border-radius: 8px;
+    cursor: zoom-in;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* crop and center to fill */
+    object-position: center;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.caption-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    text-align: center;
+    padding: 20px;
+}
+
+.gallery-item:hover .caption-overlay {
+    opacity: 1;
+}
+
+/*Touggourt Project Page Style*/
+.touggourt-hero {
+    background: url('https://alcantarasystems.com/wp-content/uploads/2017/01/togourt.jpg');
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.touggourt-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/*Port Project Page Style*/
+.portuaris-hero {
+    background: url('https://alcantarasystems.com/wp-content/uploads/2017/01/3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.portuaris-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/*Inzourem Project Page Style*/
+.inzourem-hero {
+    background: url('https://alcantarasystems.com/wp-content/uploads/2017/01/sidimussa.png');
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.inzourem-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/*Boumerdes Project Page Style*/
+.boumerdes-hero {
+    background: url('https://alcantarasystems.com/wp-content/uploads/2021/02/Montaje-de-las-escuelas-de-Zemmouri.png');
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.bouemrdes-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/*Tidjalabine Project Page Style*/
+.tidjalabine-hero {
+    background: url('https://alcantarasystems.com/wp-content/uploads/2021/02/3-3.png');
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.tidjalabine-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/*Dakar Project Page Style*/
+.dakar-hero {
+    background: url('https://alcantarasystems.com/wp-content/uploads/2021/02/Edificio-principal-de-la-guarderia.jpg');
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.dakar-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/*Dakar Project Page Style*/
+.gandiaye-hero {
+    background: url('https://alcantarasystems.com/wp-content/uploads/2021/02/Queseria.png');
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.gandiaye-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/*Salem Project Page Style*/
+.salem-hero {
+    background: url('https://alcantarasystems.com/wp-content/uploads/2021/02/10-1.jpg');
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.salem-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/*Agroalimentaire Argelia Project Page Style*/
+.agroalimentario-argelia-hero {
+    background: url('https://alcantarasystems.com/wp-content/uploads/2021/01/04-cultivo-a-cielo-abierto.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.agroalimentario-argelia-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/*Incendios Project Page Style*/
+.incendios-hero {
+    background: url('https://www.cottesgroup.com/app/uploads/2020/06/robots-contra-incendios.jpg');
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.incendios-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/*Biskra Project Page Style*/
+.biskra-hero {
+    background: url('https://alcantarasystems.com/wp-content/uploads/2021/02/5.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.biskra-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/*plastico Project Page Style*/
+.plastico-hero {
+    background: url('https://alcantarasystems.com/wp-content/uploads/2021/02/4-1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.plastico-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/* Projects Page Styles*/
+.proyectos-hero {
+    background: url('https://alcantarasystems.com/wp-content/uploads/2021/01/Pontones-de-atraque-12.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--white);
+}
+
+.proyectos-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.5;
+    z-index: 1;
+}
